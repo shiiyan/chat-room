@@ -1,9 +1,9 @@
-package com.chatRoom.applicationServices
+package com.chatRoom.applicationServices.participantAccount
 
 import com.chatRoom.domainModels.participantAccount.AccountId
 import com.chatRoom.domainModels.participantAccount.ParticipantAccount
 import com.chatRoom.domainModels.participantAccount.ParticipantAccountDto
-import com.chatRoom.repositories.IParticipantAccountRepository
+import com.chatRoom.repositories.participantAccount.IParticipantAccountRepository
 
 class ParticipantAccountApplicationService(private val participantAccountRepository: IParticipantAccountRepository) {
     fun getParticipantAccountById(id: String): ParticipantAccountDto {

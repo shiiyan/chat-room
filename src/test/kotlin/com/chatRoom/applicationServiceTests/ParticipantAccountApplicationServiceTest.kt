@@ -1,8 +1,8 @@
 package com.chatRoom.applicationServiceTests
 
-import com.chatRoom.applicationServices.ParticipantAccountApplicationService
-import com.chatRoom.repositories.IParticipantAccountRepository
-import com.chatRoom.repositories.InMemoryParticipantAccountRepository
+import com.chatRoom.applicationServices.participantAccount.ParticipantAccountApplicationService
+import com.chatRoom.repositories.participantAccount.IParticipantAccountRepository
+import com.chatRoom.repositories.participantAccount.InMemoryParticipantAccountRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

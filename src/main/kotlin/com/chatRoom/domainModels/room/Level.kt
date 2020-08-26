@@ -14,8 +14,12 @@ class Level(var value: Int) {
         require(value in MINIMUM_VALUE..MAXIMUM_VALUE)
     }
 
-    fun downBy(target: Int) {
-        value -= target
+    fun lower(lowerBy: Int) {
+        if (lowerBy <= 0) {
+            throw Exception("Non Positive Number Forbidden")
+        }
+
+        value -= lowerBy
     }
 
     fun isQualified(target: Int) = value >= target

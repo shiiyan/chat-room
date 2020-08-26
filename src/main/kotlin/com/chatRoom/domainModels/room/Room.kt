@@ -21,6 +21,10 @@ class Room(
         )
     }
 
+    fun lowerLevel(lowerBy: Int) {
+        level.lower(lowerBy)
+    }
+
     fun toDto(): RoomDto = RoomDto(
         id = id.value,
         name = name.value,

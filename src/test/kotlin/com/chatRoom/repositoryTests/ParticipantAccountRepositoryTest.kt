@@ -1,8 +1,8 @@
 package com.chatRoom.repositoryTests
 
 import com.chatRoom.domainModels.participantAccount.ParticipantAccount
-import com.chatRoom.repositories.IParticipantAccountRepository
-import com.chatRoom.repositories.InMemoryParticipantAccountRepository
+import com.chatRoom.repositories.participantAccount.IParticipantAccountRepository
+import com.chatRoom.repositories.participantAccount.InMemoryParticipantAccountRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
