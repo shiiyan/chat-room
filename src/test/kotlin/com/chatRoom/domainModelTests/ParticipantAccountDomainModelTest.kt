@@ -4,7 +4,7 @@ import com.chatRoom.domainModels.participantAccount.ParticipantAccount
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
-class ParticipantAccountTest {
+class ParticipantAccountDomainModelTest {
     @Test
     fun `test create participant account  successfully`() {
         ParticipantAccount.create(name = "name", iconPath = "iconPath")
@@ -18,9 +18,16 @@ class ParticipantAccountTest {
     }
 
     @Test
-    fun `test create partipant account failed with name too long`() {
-        assertThrows<java.lang.IllegalArgumentException> {
+    fun `test create participant account failed with name too long`() {
+        assertThrows<IllegalArgumentException> {
             ParticipantAccount.create(name = "namenamenamenamename", iconPath = "iconPath")
+        }
+    }
+
+    @Test
+    fun `test create participant account failed with iconPath too short`() {
+        assertThrows<IllegalArgumentException> {
+            ParticipantAccount.create(name="name", iconPath = "")
         }
     }
 }
