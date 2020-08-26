@@ -1,4 +1,4 @@
-package com.chatRoom.repositoryTests
+package com.chatRoom.repositoryTests.participantAccount
 
 import com.chatRoom.domainModels.participantAccount.ParticipantAccount
 import com.chatRoom.repositories.participantAccount.IParticipantAccountRepository

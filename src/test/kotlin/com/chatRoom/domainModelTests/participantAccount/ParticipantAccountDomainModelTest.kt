@@ -1,4 +1,4 @@
-package com.chatRoom.domainModelTests
+package com.chatRoom.domainModelTests.participantAccount
 
 import com.chatRoom.domainModels.participantAccount.ParticipantAccount
 import org.junit.jupiter.api.Test
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.assertThrows
 
 class ParticipantAccountDomainModelTest {
     @Test
-    fun `test create participant account  successfully`() {
+    fun `test create participant account successfully`() {
         ParticipantAccount.create(name = "name", iconPath = "iconPath")
     }
 

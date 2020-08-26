@@ -21,9 +21,11 @@ class Room(
         )
     }
 
-    fun lowerLevel(lowerBy: Int) {
-        level.lower(lowerBy)
+    fun lowerLevel(number: Int) {
+        level.lowerBy(number)
     }
+
+    fun isQualifiedToEnter(numberOfMessages: Int): Boolean = !level.isHigherThan(numberOfMessages)
 
     fun toDto(): RoomDto = RoomDto(
         id = id.value,
