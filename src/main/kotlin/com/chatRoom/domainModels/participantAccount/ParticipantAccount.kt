@@ -15,4 +15,10 @@ class ParticipantAccount(
             icon = Icon(iconPath)
         )
     }
+
+    fun toDto(): ParticipantAccountDto = ParticipantAccountDto(
+        id = id.value,
+        name = name.value,
+        iconPath = icon.path
+    )
 }

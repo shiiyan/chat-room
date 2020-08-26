@@ -1,20 +1,51 @@
 package com.chatRoom.applicationServiceTests
 
 import com.chatRoom.applicationServices.ParticipantAccountApplicationService
+import com.chatRoom.repositories.IParticipantAccountRepository
 import com.chatRoom.repositories.InMemoryParticipantAccountRepository
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class ParticipantAccountApplicationServiceTest {
+    private lateinit var participantAccountRepository: IParticipantAccountRepository
+    private lateinit var participantAccountApplicationService: ParticipantAccountApplicationService
+    private val participant = object {
+        val name: String = "name"
+        val iconPath: String = "iconPath"
+    }
+
+    @BeforeEach
+    fun init() {
+        participantAccountRepository = InMemoryParticipantAccountRepository()
+        participantAccountApplicationService = ParticipantAccountApplicationService(participantAccountRepository)
+    }
+
+    @Test
+    fun `test get participantAccount by id`() {
+        val id = participantAccountApplicationService.registerParticipantAccount(
+            name = participant.name,
+            iconPath = participant.iconPath
+        )
+        val participantAccountDto = participantAccountApplicationService.getParticipantAccountById(id)
+
+        assertEquals(id, participantAccountDto.id)
+        assertEquals(participant.name, participantAccountDto.name)
+        assertEquals(participant.iconPath, participantAccountDto.iconPath)
+    }
+
+    @Test
+    fun `test get participantAccount by id not found`() {
+        val exception = assertThrows<Exception> { participantAccountApplicationService.getParticipantAccountById(id = "") }
+        assertEquals("Participant Account Not Found", exception.message)
+    }
+
     @Test
     fun `test register participantAccount`() {
-        val participantAccountRepository = InMemoryParticipantAccountRepository()
-        val participantAccountApplicationService = ParticipantAccountApplicationService(
-            participantAccountRepository
-        )
-
         participantAccountApplicationService.registerParticipantAccount(
-            name = "name",
-            iconPath = "iconPath"
+            name = participant.name,
+            iconPath = participant.iconPath
         )
     }
 }

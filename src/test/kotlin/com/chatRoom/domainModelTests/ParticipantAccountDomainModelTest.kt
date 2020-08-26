@@ -27,7 +27,7 @@ class ParticipantAccountDomainModelTest {
     @Test
     fun `test create participant account failed with iconPath too short`() {
         assertThrows<IllegalArgumentException> {
-            ParticipantAccount.create(name="name", iconPath = "")
+            ParticipantAccount.create(name = "name", iconPath = "")
         }
     }
 }
