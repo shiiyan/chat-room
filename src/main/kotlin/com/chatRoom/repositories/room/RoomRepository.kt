@@ -17,7 +17,7 @@ class RoomRepository : IRoomRepository {
         TODO("Not yet implemented")
     }
 
-    override fun save(room: Room): String {
+    override fun save(room: Room) {
         TODO("Not yet implemented")
     }
 

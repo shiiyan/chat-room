@@ -8,6 +8,6 @@ interface IRoomRepository {
     abstract fun findAll(): List<Room>
     abstract fun findByIdOrNull(roomId: RoomId): Room?
     abstract fun findByAccountId(accountId: AccountId): List<Room>
-    abstract fun save(room: Room): String
+    abstract fun save(room: Room)
     abstract fun deleteByIdOrFailed(roomId: RoomId)
 }

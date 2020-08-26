@@ -1,4 +1,4 @@
-package com.chatRoom.applicationServiceTests
+package com.chatRoom.applicationServiceTests.participantAccount
 
 import com.chatRoom.applicationServices.participantAccount.ParticipantAccountApplicationService
 import com.chatRoom.repositories.participantAccount.IParticipantAccountRepository
