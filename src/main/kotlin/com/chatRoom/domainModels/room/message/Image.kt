@@ -1,7 +1,7 @@
 package com.chatRoom.domainModels.room.message
 
-data class Image(
-    val pathList: List<String>
+class Image(
+    var pathList: List<String>
 ) {
     companion object {
         const val MINIMUM_LENGTH = 1
@@ -13,5 +13,10 @@ data class Image(
 
     private fun validateField() {
         require(pathList.all { it.length > MINIMUM_LENGTH })
+    }
+
+    fun updatePathList(newPathList: List<String>) {
+        pathList = newPathList
+        validateField()
     }
 }
