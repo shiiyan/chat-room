@@ -50,7 +50,7 @@ class Message(
     }
 
     private fun getSecondsSinceCreated(): Long {
-        return Duration.between(LocalDateTime.now(), createdAt.dateTime).seconds
+        return Duration.between(createdAt.dateTime, LocalDateTime.now()).seconds
     }
 
     fun isCreatorOfMessage(accountId: String): Boolean = accountId == participantAccountId.value

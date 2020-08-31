@@ -37,7 +37,9 @@ class ParticipantAccountApplicationServiceTest {
 
     @Test
     fun `test get participantAccount by id not found`() {
-        val exception = assertThrows<Exception> { participantAccountApplicationService.getParticipantAccountById(id = "") }
+        val exception = assertThrows<Exception> {
+            participantAccountApplicationService.getParticipantAccountById(id = "account-id-not-exist")
+        }
         assertEquals("Participant Account Not Found", exception.message)
     }
 
