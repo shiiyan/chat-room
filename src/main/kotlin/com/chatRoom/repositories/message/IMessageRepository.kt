@@ -1,9 +1,9 @@
-package com.chatRoom.repositories.room.message
+package com.chatRoom.repositories.message
 
+import com.chatRoom.domainModels.message.Message
+import com.chatRoom.domainModels.message.MessageId
 import com.chatRoom.domainModels.participantAccount.AccountId
 import com.chatRoom.domainModels.room.RoomId
-import com.chatRoom.domainModels.room.message.Message
-import com.chatRoom.domainModels.room.message.MessageId
 
 interface IMessageRepository {
     abstract fun findByIdOrNull(messageId: MessageId): Message?

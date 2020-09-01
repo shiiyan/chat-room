@@ -1,7 +1,7 @@
 package com.chatRoom.domainModels.room
 
+import com.chatRoom.domainModels.message.Message
 import com.chatRoom.domainModels.participantAccount.AccountId
-import com.chatRoom.domainModels.room.message.Message
 import java.time.LocalDateTime
 
 class Room(

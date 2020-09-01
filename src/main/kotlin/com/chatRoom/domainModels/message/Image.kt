@@ -1,4 +1,4 @@
-package com.chatRoom.domainModels.room.message
+package com.chatRoom.domainModels.message
 
 class Image(
     var pathList: List<String>

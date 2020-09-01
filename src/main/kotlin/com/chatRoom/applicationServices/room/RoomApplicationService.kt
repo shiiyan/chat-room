@@ -3,8 +3,8 @@ package com.chatRoom.applicationServices.room
 import com.chatRoom.domainModels.room.RoomDomainService
 import com.chatRoom.domainModels.room.RoomDto
 import com.chatRoom.domainModels.room.RoomId
+import com.chatRoom.repositories.message.IMessageRepository
 import com.chatRoom.repositories.room.IRoomRepository
-import com.chatRoom.repositories.room.message.IMessageRepository
 
 class RoomApplicationService(
     private val roomRepository: IRoomRepository,

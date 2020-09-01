@@ -1,4 +1,4 @@
-package com.chatRoom.domainModels.room.message
+package com.chatRoom.domainModels.message
 
 import com.chatRoom.domainModels.participantAccount.AccountId
 import com.chatRoom.domainModels.room.RoomId

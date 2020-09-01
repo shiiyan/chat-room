@@ -1,10 +1,10 @@
 package com.chatRoom.domainModelTests.room
 
 import com.chatRoom.domainModels.room.RoomDomainService
+import com.chatRoom.repositories.message.IMessageRepository
+import com.chatRoom.repositories.message.InMemoryMessageRepository
 import com.chatRoom.repositories.room.IRoomRepository
 import com.chatRoom.repositories.room.InMemoryRoomRepository
-import com.chatRoom.repositories.room.message.IMessageRepository
-import com.chatRoom.repositories.room.message.InMemoryMessageRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

@@ -1,13 +1,13 @@
-package com.chatRoom.domainModelTests.room.message
+package com.chatRoom.domainModelTests.message
 
+import com.chatRoom.domainModels.message.CreatedAt
+import com.chatRoom.domainModels.message.Image
+import com.chatRoom.domainModels.message.Message
+import com.chatRoom.domainModels.message.MessageId
+import com.chatRoom.domainModels.message.Text
+import com.chatRoom.domainModels.message.UpdatedAt
 import com.chatRoom.domainModels.participantAccount.AccountId
 import com.chatRoom.domainModels.room.RoomId
-import com.chatRoom.domainModels.room.message.CreatedAt
-import com.chatRoom.domainModels.room.message.Image
-import com.chatRoom.domainModels.room.message.Message
-import com.chatRoom.domainModels.room.message.MessageId
-import com.chatRoom.domainModels.room.message.Text
-import com.chatRoom.domainModels.room.message.UpdatedAt
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Test
