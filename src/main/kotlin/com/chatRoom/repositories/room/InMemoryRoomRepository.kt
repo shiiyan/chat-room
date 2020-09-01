@@ -11,12 +11,23 @@ class InMemoryRoomRepository : IRoomRepository {
 
     override fun findByIdOrNull(roomId: RoomId): Room? = data[roomId]
 
-    override fun findByAccountId(accountId: AccountId): List<Room> {
-        val filteredData = data.filter { (_, value) ->
+    override fun findAllByAccountId(accountId: AccountId): List<Room> {
+        val filteredData = data.filter {
+            (_, value) ->
             value.participantAccountId == accountId
         }
 
         return filteredData.values.map { it }
+    }
+
+    override fun findLatestByAccountId(accountId: AccountId): List<Room> {
+        val filteredData = data.filter {
+            (_, value) ->
+            value.participantAccountId == accountId
+        }
+
+        return filteredData.values.sortedByDescending { it.createdAt.dateTime }
+            .take(1)
     }
 
     override fun save(room: Room) {

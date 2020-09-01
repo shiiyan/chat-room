@@ -37,7 +37,7 @@ class RoomRepositoryTest {
 
     @Test
     fun `test find room by account id`() {
-        val foundRooms = roomRepository.findByAccountId(AccountId("123"))
+        val foundRooms = roomRepository.findAllByAccountId(AccountId("123"))
         assertEquals(1, foundRooms.size)
         assertTrue(foundRooms.contains(room1))
     }

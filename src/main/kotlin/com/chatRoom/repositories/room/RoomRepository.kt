@@ -13,7 +13,11 @@ class RoomRepository : IRoomRepository {
         TODO("Not yet implemented")
     }
 
-    override fun findByAccountId(accountId: AccountId): List<Room> {
+    override fun findAllByAccountId(accountId: AccountId): List<Room> {
+        TODO("Not yet implemented")
+    }
+
+    override fun findLatestByAccountId(accountId: AccountId): List<Room> {
         TODO("Not yet implemented")
     }
 
