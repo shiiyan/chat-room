@@ -30,7 +30,7 @@ class RoomRepositoryTest {
     }
 
     @Test
-    fun `test find room by Id`() {
+    fun `test find room by id`() {
         val foundRoom = roomRepository.findByIdOrNull(room1.id)
         assertEquals(room1, foundRoom)
     }
