@@ -17,13 +17,13 @@ class RoomApplicationService(
     }
 
     fun createRoom(name: String, level: Int): String {
-        val roomId = RoomDomainService(roomRepository, messageRepository).createRoom(name, level)
-
-        return roomId
+        return RoomDomainService(roomRepository, messageRepository)
+            .createRoom(name, level)
     }
 
     fun lowerRoomLevel(id: String, lowerBy: Int) {
         val room = roomRepository.findByIdOrNull(RoomId(id))!!
+        // TODO("Check if current account is the creator of room ")
         room.lowerLevel(lowerBy)
         roomRepository.save(room)
     }
