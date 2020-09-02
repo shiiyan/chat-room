@@ -8,6 +8,14 @@ class MessageApplicationService(
     private val messageRepository: IMessageRepository,
     private val roomRepository: IRoomRepository
 ) {
+    fun getMessageByRoomId() {
+        TODO("Not yet implemented")
+    }
+
+    fun getMessageByAccountId() {
+        TODO("Not yet implemented")
+    }
+
     fun sendMessage(text: String, imagePaths: List<String>, roomId: String): String {
 
         return MessageDomainService(messageRepository, roomRepository)

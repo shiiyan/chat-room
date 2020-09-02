@@ -75,4 +75,18 @@ class RoomApplicationServiceTest {
 
         assertEquals(5, roomDto.level)
     }
+
+    @Test
+    fun `test delete room`() {
+        val id = roomApplicationService.createRoom(
+            name = roomToCreate.name,
+            level = roomToCreate.level
+        )
+        roomApplicationService.deleteRoom(id)
+
+        val exception = assertThrows<Exception> {
+            roomApplicationService.getRoomById(id)
+        }
+        assertEquals("Room Not Found", exception.message)
+    }
 }
