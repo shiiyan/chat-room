@@ -1,9 +1,12 @@
 package com.chatRoom.domainModels.room
 
-import com.chatRoom.domainModels.message.Message
+import com.chatRoom.IntraAggregateInterfaces.IntraAggregateMessageId
 
-data class LatestMessageList(var value: List<Message>) {
-    fun updateMessageList(newMessageList: List<Message>) {
-        value = newMessageList
+// message for room
+
+data class LatestMessageList(var value: List<MessageListItem>) {
+    fun updateMessageList(newMessageIdList: List<IntraAggregateMessageId>) {
+
+        value = newMessageIdList.map { MessageListItem(it.messageId) }
     }
 }

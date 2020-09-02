@@ -1,17 +1,18 @@
 package com.chatRoom.domainModels.room
 
-import com.chatRoom.domainModels.message.Message
+import com.chatRoom.IntraAggregateInterfaces.IntraAggregateMessageId
 import com.chatRoom.domainModels.participantAccount.AccountId
+import java.time.Duration
 import java.time.LocalDateTime
 
 class Room(
     val id: RoomId,
     private val name: Name,
     private val level: Level,
-    val participantAccountId: AccountId,
+    private val participantAccountId: AccountId,
     private val latestMessageList: LatestMessageList,
-    val createdAt: CreatedAt,
-    val updatedAt: UpdatedAt
+    private val createdAt: CreatedAt,
+    private val updatedAt: UpdatedAt
 
 ) {
     companion object {
@@ -35,18 +36,25 @@ class Room(
         updatedAt.changeDateTime(LocalDateTime.now())
     }
 
-    fun updateLatestMessageList(newMessageList: List<Message>) {
-        latestMessageList.updateMessageList(newMessageList)
+    fun updateLatestMessageList(newMessageIdList: List<IntraAggregateMessageId>) {
+        latestMessageList.updateMessageList(newMessageIdList)
         updatedAt.changeDateTime(LocalDateTime.now())
     }
 
     fun isQualifiedToEnter(numberOfMessages: Int): Boolean = !level.isHigherThan(numberOfMessages)
+
+    fun isCreatorOfRoom(accountId: String): Boolean = participantAccountId.value == accountId
+
+    fun getSecondsSinceCreated(): Long {
+        return Duration.between(createdAt.dateTime, LocalDateTime.now()).seconds
+    }
 
     fun toDto(): RoomDto = RoomDto(
         id = id.value,
         name = name.value,
         level = level.value,
         participantAccountId = participantAccountId.value,
+        latestMessageIdList = latestMessageList.value.map { it.messageId },
         createdAt = createdAt.dateTime,
         updatedAt = updatedAt.dateTime
     )

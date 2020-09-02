@@ -13,6 +13,7 @@ class ParticipantAccountApplicationService(private val participantAccountReposit
     }
 
     fun registerParticipantAccount(name: String, iconPath: String): String {
+        // TODO: check whether user has participant account using session ID(Cookie)
         val participantAccount = ParticipantAccount.create(name, iconPath)
         participantAccountRepository.save(participantAccount)
 

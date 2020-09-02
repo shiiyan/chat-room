@@ -49,7 +49,7 @@ class Message(
         updatedAt.changeDateTime(LocalDateTime.now())
     }
 
-    private fun getSecondsSinceCreated(): Long {
+    fun getSecondsSinceCreated(): Long {
         return Duration.between(createdAt.dateTime, LocalDateTime.now()).seconds
     }
 

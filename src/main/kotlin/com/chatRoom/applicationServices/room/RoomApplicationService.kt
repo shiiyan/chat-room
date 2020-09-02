@@ -27,4 +27,8 @@ class RoomApplicationService(
         room.lowerLevel(lowerBy)
         roomRepository.save(room)
     }
+
+    fun deleteRoom(id: String) {
+        RoomDomainService(roomRepository, messageRepository).deleteRoom(id)
+    }
 }
