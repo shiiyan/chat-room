@@ -1,6 +1,6 @@
 package com.chatRoom.domainModels.room
 
-import com.chatRoom.IntraAggregateInterfaces.IntraAggregateMessageId
+import com.chatRoom.intraAggregateDataClasses.IntraAggregateMessageId
 
 // message for room
 

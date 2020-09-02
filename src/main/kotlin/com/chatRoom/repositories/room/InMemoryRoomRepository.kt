@@ -14,7 +14,7 @@ class InMemoryRoomRepository : IRoomRepository {
     override fun findAllByAccountId(accountId: AccountId): List<Room> {
         val filteredData = data.filter {
             (_, value) ->
-            value.participantAccountId == accountId
+            value.toDto().participantAccountId == accountId.value
         }
 
         return filteredData.values.map { it }
@@ -23,10 +23,10 @@ class InMemoryRoomRepository : IRoomRepository {
     override fun findLatestByAccountId(accountId: AccountId): List<Room> {
         val filteredData = data.filter {
             (_, value) ->
-            value.participantAccountId == accountId
+            value.toDto().participantAccountId == accountId.value
         }
 
-        return filteredData.values.sortedByDescending { it.createdAt.dateTime }
+        return filteredData.values.sortedByDescending { it.toDto().createdAt }
             .take(1)
     }
 

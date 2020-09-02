@@ -2,10 +2,12 @@ package com.chatRoom.domainModelTests.message
 
 import com.chatRoom.domainModels.message.MessageDomainService
 import com.chatRoom.domainModels.room.RoomDomainService
+import com.chatRoom.domainModels.room.RoomId
 import com.chatRoom.repositories.message.IMessageRepository
 import com.chatRoom.repositories.message.InMemoryMessageRepository
 import com.chatRoom.repositories.room.IRoomRepository
 import com.chatRoom.repositories.room.InMemoryRoomRepository
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -42,11 +44,14 @@ class MessageDomainServiceTest {
             name = sampleRoom.name,
             level = sampleRoom.level
         )
-        messageDomainService.sendMessage(
+        val sampleMessageId = messageDomainService.sendMessage(
             text = sampleMessage.text,
             imagePaths = sampleMessage.imagePaths,
             roomId = sampleRoomId
         )
+        val foundRoom = roomRepository.findByIdOrNull(RoomId(sampleRoomId))!!
+
+        assertEquals(sampleMessageId, foundRoom.toDto().latestMessageIdList.first())
     }
 
     @Test

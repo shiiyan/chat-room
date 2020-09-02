@@ -1,7 +1,7 @@
 package com.chatRoom.domainModels.room
 
-import com.chatRoom.IntraAggregateInterfaces.IntraAggregateMessageId
 import com.chatRoom.domainModels.participantAccount.AccountId
+import com.chatRoom.intraAggregateDataClasses.IntraAggregateMessageId
 import java.time.Duration
 import java.time.LocalDateTime
 

@@ -54,13 +54,12 @@ class RoomDomainService(
         val foundRoom = roomRepository.findByIdOrNull(RoomId(roomId))!!
         // TODO: getCurrentAccountId from session yet to implemented
         val currentAccountId = "account-id-not-exist"
-        if (!foundRoom.isCreatorOfRoom(currentAccountId)) {
+        if (
+            !foundRoom.isCreatorOfRoom(currentAccountId) ||
+            foundRoom.toDto().latestMessageIdList.isNotEmpty()
+        ) {
             return false
         }
-
-//        if (false) {
-//            return false
-//        }
 
         return true
     }

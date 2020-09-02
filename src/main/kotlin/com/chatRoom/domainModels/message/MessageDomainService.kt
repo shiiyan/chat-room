@@ -1,6 +1,7 @@
 package com.chatRoom.domainModels.message
 
 import com.chatRoom.domainModels.room.RoomId
+import com.chatRoom.intraAggregateDataClasses.IntraAggregateMessageId
 import com.chatRoom.repositories.message.IMessageRepository
 import com.chatRoom.repositories.room.IRoomRepository
 
@@ -16,7 +17,9 @@ class MessageDomainService(
         val newMessage = Message.create(text, imagePaths, currentAccountId, roomId)
         messageRepository.save(newMessage)
 
-        foundRoom.updateLatestMessageList(listOf(newMessage))
+        foundRoom.updateLatestMessageList(
+            listOf(IntraAggregateMessageId(newMessage.toDto().id))
+        )
         roomRepository.save(foundRoom)
 
         return newMessage.toDto().id
