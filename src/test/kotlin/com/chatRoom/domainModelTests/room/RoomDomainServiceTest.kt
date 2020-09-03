@@ -83,7 +83,7 @@ class RoomDomainServiceTest {
             level = roomToCreate.level
         )
 
-        messageDomainService.sendMessage(
+        messageDomainService.sendMessageByRoomCreator(
             text = messageToSend.text,
             imagePaths = messageToSend.imagePaths,
             roomId = createdRoomId

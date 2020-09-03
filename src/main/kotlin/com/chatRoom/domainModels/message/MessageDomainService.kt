@@ -1,5 +1,6 @@
 package com.chatRoom.domainModels.message
 
+import com.chatRoom.domainModels.participantAccount.AccountId
 import com.chatRoom.domainModels.room.RoomId
 import com.chatRoom.intraAggregateDataClasses.IntraAggregateMessageId
 import com.chatRoom.repositories.message.IMessageRepository
@@ -9,7 +10,51 @@ class MessageDomainService(
     private val messageRepository: IMessageRepository,
     private val roomRepository: IRoomRepository
 ) {
-    fun sendMessage(text: String, imagePaths: List<String>, roomId: String): String {
+    fun getMessageByRoomIdForParticipant(roomId: String): List<MessageDto> {
+        // TODO: getCurrentAccountId from session yet to implemented
+        val currentAccountId = "account-id-not-exist"
+        val countOfMessages = messageRepository.findCountByAccountId(AccountId(currentAccountId))
+
+        val room = roomRepository.findByIdOrNull(RoomId(roomId))!!
+
+        if (countOfMessages < room.toDto().level) {
+            throw Exception("Room Not Accessible")
+        }
+
+        val foundMessages = messageRepository.findAllByRoomId(RoomId(roomId))
+
+        return foundMessages.map { it.toDto() }
+    }
+
+    fun getMessageByRoomIdForRoomCreator(roomId: String): List<MessageDto> {
+        val foundMessages = messageRepository.findAllByRoomId(RoomId(roomId))
+
+        return foundMessages.map { it.toDto() }
+    }
+
+    fun sendMessageByParticipant(text: String, imagePaths: List<String>, roomId: String): String {
+        // TODO: getCurrentAccountId from session yet to implemented
+        val currentAccountId = "account-id-not-exist"
+        val countOfMessages = messageRepository.findCountByAccountId(AccountId(currentAccountId))
+
+        val foundRoom = roomRepository.findByIdOrNull(RoomId(roomId))!!
+
+        if (countOfMessages < foundRoom.toDto().level) {
+            throw Exception("Room Not Accessible")
+        }
+
+        val newMessage = Message.create(text, imagePaths, currentAccountId, roomId)
+        messageRepository.save(newMessage)
+
+        foundRoom.updateLatestMessageList(
+            listOf(IntraAggregateMessageId(newMessage.toDto().id))
+        )
+        roomRepository.save(foundRoom)
+
+        return newMessage.toDto().id
+    }
+
+    fun sendMessageByRoomCreator(text: String, imagePaths: List<String>, roomId: String): String {
         // TODO: getCurrentAccountId from session yet to implemented
         val currentAccountId = "account-id-not-exist"
         val foundRoom = roomRepository.findByIdOrNull(RoomId(roomId))!!

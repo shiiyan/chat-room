@@ -39,12 +39,12 @@ class MessageDomainServiceTest {
     }
 
     @Test
-    fun `test send message successfully`() {
+    fun `test send message by room creator successfully`() {
         val sampleRoomId = roomDomainService.createRoom(
             name = sampleRoom.name,
             level = sampleRoom.level
         )
-        val sampleMessageId = messageDomainService.sendMessage(
+        val sampleMessageId = messageDomainService.sendMessageByRoomCreator(
             text = sampleMessage.text,
             imagePaths = sampleMessage.imagePaths,
             roomId = sampleRoomId
@@ -55,9 +55,9 @@ class MessageDomainServiceTest {
     }
 
     @Test
-    fun `test send message failed with room not found`() {
+    fun `test send message by room creator failed with room not found`() {
         assertThrows<NullPointerException> {
-            messageDomainService.sendMessage(
+            messageDomainService.sendMessageByRoomCreator(
                 text = sampleMessage.text,
                 imagePaths = sampleMessage.imagePaths,
                 roomId = "room-id-not-exist"
@@ -71,7 +71,7 @@ class MessageDomainServiceTest {
             name = sampleRoom.name,
             level = sampleRoom.level
         )
-        val sampleMessageId = messageDomainService.sendMessage(
+        val sampleMessageId = messageDomainService.sendMessageByRoomCreator(
             text = sampleMessage.text,
             imagePaths = sampleMessage.imagePaths,
             roomId = sampleRoomId

@@ -20,6 +20,15 @@ class InMemoryMessageRepository : IMessageRepository {
         return filteredData.values.map { it }
     }
 
+    override fun findCountByAccountId(accountId: AccountId): Int {
+        val filteredData = data.filter {
+            (_, value) ->
+            value.participantAccountId == accountId
+        }
+
+        return filteredData.values.size
+    }
+
     override fun findLatestByAccountId(accountId: AccountId): List<Message> {
         val filteredData = data.filter {
             (_, value) ->
