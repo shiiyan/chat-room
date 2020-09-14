@@ -42,7 +42,7 @@ class MessageApplicationServiceTest {
             level = sampleRoom.level
         )
 
-        messageApplicationService.sendMessage(
+        messageApplicationService.sendMessageToRoom(
             text = sampleMessage.text,
             imagePaths = sampleMessage.imagePaths,
             roomId = sampleRoomId
@@ -56,7 +56,7 @@ class MessageApplicationServiceTest {
             level = sampleRoom.level
         )
 
-        val sampleMessageId = messageApplicationService.sendMessage(
+        val sampleMessageId = messageApplicationService.sendMessageToRoom(
             text = sampleMessage.text,
             imagePaths = sampleMessage.imagePaths,
             roomId = sampleRoomId

@@ -6,6 +6,6 @@ import com.chatRoom.domainModels.thread.ThreadId
 
 interface IThreadRepository {
     abstract fun findByIdOrNull(threadId: ThreadId): Thread?
-    abstract fun findAllByMessageId(messageId: MessageId): List<Thread>
+    abstract fun findByMessageId(messageId: MessageId): Thread?
     abstract fun save(thread: Thread)
 }

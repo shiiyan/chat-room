@@ -21,7 +21,7 @@ class MessageApplicationService(
             MessageDomainService(messageRepository, roomRepository).getMessageByRoomIdForParticipant(roomId)
     }
 
-    fun sendMessage(text: String, imagePaths: List<String>, roomId: String): String {
+    fun sendMessageToRoom(text: String, imagePaths: List<String>, roomId: String): String {
         // TODO: getCurrentAccountId from session yet to implemented
         val currentAccountId = "account-id-not-exist"
         val foundRoom = roomRepository.findByIdOrNull(RoomId(roomId))!!

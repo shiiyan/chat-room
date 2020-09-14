@@ -9,23 +9,25 @@ class ThreadApplicationService(
     private val threadRepository: IThreadRepository
 
 ) {
-    fun sendThread(text: String, imagePaths: List<String>, messageId: String): String {
+    fun createThread(messageId: String): String {
         // TODO: getCurrentAccountId from session yet to implemented
         val currentAccountId = "account-id-not-exist"
 
-        if (threadRepository.findAllByMessageId(MessageId(messageId)).size > 1000) {
-            throw Exception("Thread Not Savable")
+        if (threadRepository.findByMessageId(MessageId(messageId)) != null) {
+            throw Exception("Thread Not Creatable")
         }
 
-        val threadToSave = Thread.create(
-            text = text,
-            imagePaths = imagePaths,
+        val threadToCreate = Thread.create(
             accountId = currentAccountId,
             messageId = messageId
         )
 
-        threadRepository.save(threadToSave)
+        threadRepository.save(threadToCreate)
 
-        return threadToSave.id.value
+        return threadToCreate.id.value
     }
+
+    fun getThreadId(messageId: String): String? = threadRepository.findByMessageId(
+        MessageId(messageId)
+    )?.id?.value
 }
