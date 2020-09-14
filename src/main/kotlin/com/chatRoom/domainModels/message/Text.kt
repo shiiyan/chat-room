@@ -1,6 +1,7 @@
 package com.chatRoom.domainModels.message
 
 data class Text(
+    // TODO: use immutable val instead of var
     var value: String
 ) {
     companion object {

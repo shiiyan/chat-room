@@ -2,7 +2,7 @@ package com.chatRoom.domainModels.room
 
 import com.chatRoom.intraAggregateDataClasses.IntraAggregateMessageId
 
-// message for room
+// message in room
 
 data class LatestMessageList(var value: List<MessageListItem>) {
     fun updateMessageList(newMessageIdList: List<IntraAggregateMessageId>) {
