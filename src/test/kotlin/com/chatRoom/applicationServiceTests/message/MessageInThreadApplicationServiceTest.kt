@@ -9,7 +9,7 @@ import com.chatRoom.repositories.room.InMemoryRoomRepository
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class MessageApplicationServiceTest {
+class MessageInThreadApplicationServiceTest {
     private lateinit var messageRepository: IMessageRepository
     private lateinit var roomRepository: IRoomRepository
     private lateinit var messageApplicationService: MessageApplicationService

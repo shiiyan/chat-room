@@ -1,7 +1,7 @@
-package com.chatRoom.domainModels.thread.message
+package com.chatRoom.domainModels.messageInThread
 
 class Image(
-    val pathList: List<String>
+        val pathList: List<String>
 ) {
     companion object {
         const val MINIMUM_LENGTH = 1

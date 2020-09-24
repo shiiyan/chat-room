@@ -1,4 +1,4 @@
-package com.chatRoom.domainModels.thread.message
+package com.chatRoom.domainModels.messageInThread
 
 import com.chatRoom.domainCommons.CustomImmutableDateTime
 import java.time.LocalDateTime

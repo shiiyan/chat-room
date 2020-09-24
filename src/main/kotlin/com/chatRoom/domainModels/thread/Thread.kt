@@ -9,19 +9,19 @@ class Thread(
     val id: ThreadId,
     private var latestMessageList: LatestMessageList,
     private val participantAccountId: AccountId,
-    private val messageId: MessageId,
+    private val rootMessageId: MessageId,
     private val createdAt: CreatedAt,
     private var updatedAt: UpdatedAt
 ) {
     companion object {
         fun create(
             accountId: String,
-            messageId: String
+            rootMessageId: String
         ) = Thread(
             id = ThreadId(),
             latestMessageList = LatestMessageList(listOf()),
             participantAccountId = AccountId(accountId),
-            messageId = MessageId(messageId),
+            rootMessageId = MessageId(rootMessageId),
             createdAt = CreatedAt(LocalDateTime.now()),
             updatedAt = UpdatedAt(LocalDateTime.now())
         )
@@ -40,7 +40,7 @@ class Thread(
         id = id.value,
         latestMessageList = latestMessageList.value.map { it.messageId },
         participantAccountId = participantAccountId.value,
-        messageId = messageId.value,
+        rootMessageId = rootMessageId.value,
         createdAt = createdAt.dateTime,
         updatedAt = updatedAt.dateTime
     )

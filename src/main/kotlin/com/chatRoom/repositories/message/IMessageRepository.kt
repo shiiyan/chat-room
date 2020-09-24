@@ -12,6 +12,6 @@ interface IMessageRepository {
     abstract fun findLatestByAccountId(accountId: AccountId): List<Message>
     abstract fun findAllByRoomId(roomId: RoomId): List<Message>
     abstract fun findLatestByRoomId(roomId: RoomId): List<Message>
-    abstract fun save(message: Message)
+    abstract fun save(messageInThread: Message)
     abstract fun deleteByIdOrFailed(messageId: MessageId)
 }

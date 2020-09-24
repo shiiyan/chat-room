@@ -1,10 +1,10 @@
-package com.chatRoom.domainModels.thread.message
+package com.chatRoom.domainModels.messageInThread
 
 import com.chatRoom.extensions.noHyphen
 import java.util.UUID
 
 data class MessageId(
-    val value: String = UUID.randomUUID().toString().noHyphen()
+        val value: String = UUID.randomUUID().toString().noHyphen()
 ) {
     companion object {
         const val MINIMUM_LENGTH = 1

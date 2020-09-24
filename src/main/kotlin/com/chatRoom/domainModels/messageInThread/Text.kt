@@ -1,8 +1,8 @@
-package com.chatRoom.domainModels.thread.message
+package com.chatRoom.domainModels.messageInThread
 
 data class Text(
-    // TODO: use immutable val instead of var
-    val value: String
+        // TODO: use immutable val instead of var
+        val value: String
 ) {
     companion object {
         const val MINIMUM_LENGTH = 1

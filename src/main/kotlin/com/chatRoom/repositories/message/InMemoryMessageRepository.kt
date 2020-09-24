@@ -58,8 +58,8 @@ class InMemoryMessageRepository : IMessageRepository {
             .take(1)
     }
 
-    override fun save(message: Message) {
-        data[message.id] = message
+    override fun save(messageInThread: Message) {
+        data[messageInThread.id] = messageInThread
     }
 
     override fun deleteByIdOrFailed(messageId: MessageId) {
