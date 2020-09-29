@@ -2,7 +2,7 @@ package com.chatroom.app.dddImplementTest.applicationTest.roomTest
 
 import com.chatroom.app.dddImplement.application.room.RoomApplicationService
 import com.chatroom.app.dddImplement.domain.room.RoomId
-import com.chatroom.app.dddImplement.port.persistence.room.InMemoryRoomRepository
+import com.chatroom.app.dddImplement.persistence.room.InMemoryRoomRepository
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test

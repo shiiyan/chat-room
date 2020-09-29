@@ -1,8 +1,8 @@
 package com.chatroom.app.dddImplement.domain.room
 
 import com.chatroom.app.dddImplement.domain.participantAccount.AccountId
-import com.chatroom.app.dddImplement.port.persistence.message.MessageRepository
-import com.chatroom.app.dddImplement.port.persistence.room.RoomRepository
+import com.chatroom.app.dddImplement.persistence.message.MessageRepository
+import com.chatroom.app.dddImplement.persistence.room.RoomRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

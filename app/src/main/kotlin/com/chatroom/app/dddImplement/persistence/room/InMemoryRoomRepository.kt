@@ -1,4 +1,4 @@
-package com.chatroom.app.dddImplement.port.persistence.room
+package com.chatroom.app.dddImplement.persistence.room
 
 import com.chatroom.app.commonConcern.noHyphen
 import com.chatroom.app.dddImplement.domain.participantAccount.AccountId

@@ -5,7 +5,7 @@ import com.chatroom.app.dddImplement.domain.room.Level
 import com.chatroom.app.dddImplement.domain.room.Name
 import com.chatroom.app.dddImplement.domain.room.Room
 import com.chatroom.app.dddImplement.domain.room.RoomId
-import com.chatroom.app.dddImplement.port.persistence.room.InMemoryRoomRepository
+import com.chatroom.app.dddImplement.persistence.room.InMemoryRoomRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeAll

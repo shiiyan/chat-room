@@ -5,8 +5,8 @@ import com.chatroom.app.dddImplement.domain.room.Level
 import com.chatroom.app.dddImplement.domain.room.Name
 import com.chatroom.app.dddImplement.domain.room.Room
 import com.chatroom.app.dddImplement.domain.room.RoomDomainService
-import com.chatroom.app.dddImplement.port.persistence.message.MessageRepository
-import com.chatroom.app.dddImplement.port.persistence.room.RoomRepository
+import com.chatroom.app.dddImplement.persistence.message.MessageRepository
+import com.chatroom.app.dddImplement.persistence.room.RoomRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

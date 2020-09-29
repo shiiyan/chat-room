@@ -1,4 +1,4 @@
-package com.chatroom.app.`interface`
+package com.chatroom.app.webInterface
 
 import com.chatroom.app.commonConcern.noHyphen
 import org.springframework.http.HttpStatus
